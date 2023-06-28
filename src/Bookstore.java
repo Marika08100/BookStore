@@ -20,7 +20,7 @@ public class Bookstore {
     public Book findBook(String title) throws BookNotFoundException {
         for (Map.Entry<Book, Integer> entry : books.entrySet()) {
             Book book = entry.getKey();
-            if (book.getTitle().equals(title)) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
                 return book;
             }
         }
@@ -34,6 +34,14 @@ public class Bookstore {
         }
 
 
+    }
+    public void sellBook(String title, int quantity) throws InsufficientStockException, BookNotFoundException {
+        Book book = findBook(title);
+        int availableQ = books.getOrDefault(book,0);
+        if(availableQ >= quantity){
+            books.put(book,availableQ - quantity);
+        }
+        throw new InsufficientStockException("Insufficient stock for book: " + title);
     }
 
 }
