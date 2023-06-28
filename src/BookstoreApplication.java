@@ -5,11 +5,15 @@ public class BookstoreApplication {
         bookstore.addBook(new Book("Confess", "Colleen Hoover", 12.00));
         bookstore.addBook(new Book("Maybe Someday", "Colleen Hoover", 10.99));
 
+
         try {
-            System.out.println("The book is found : " + bookstore.findBook("l"));
+            System.out.println("The book is found : " + bookstore.findBook("Confess"));
         } catch (BookNotFoundException e) {
             System.out.println(e.getMessage());
         }
+
+        System.out.println("The books in the bookstore : ");
+        bookstore.displayBooks();
 
 
     }
