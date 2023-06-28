@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Bookstore {
 
-    private Map<Book, Integer> books;
+    private final Map<Book, Integer> books;
 
     public Bookstore() {
         this.books = new HashMap<>();
