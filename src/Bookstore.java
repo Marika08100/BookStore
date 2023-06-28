@@ -29,17 +29,19 @@ public class Bookstore {
     }
 
     public void displayBooks() {
+        System.out.println("The books in the bookstore : ");
         for (Map.Entry<Book, Integer> entry : books.entrySet()) {
-            System.out.println("Book " + entry.getKey() +  ". Quantity : " + entry.getValue() + ".");
+            System.out.println("Book " + entry.getKey() + ". Quantity : " + entry.getValue() + ".");
         }
 
 
     }
+
     public void sellBook(String title, int quantity) throws InsufficientStockException, BookNotFoundException {
         Book book = findBook(title);
-        int availableQ = books.getOrDefault(book,0);
-        if(availableQ >= quantity){
-            books.put(book,availableQ - quantity);
+        int availableQ = books.getOrDefault(book, 0);
+        if (availableQ >= quantity) {
+            books.put(book, availableQ - quantity);
         }
         throw new InsufficientStockException("Insufficient stock for book: " + title);
     }

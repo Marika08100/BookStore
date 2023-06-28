@@ -17,7 +17,6 @@ public class BookstoreApplication {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("The books in the bookstore : ");
         bookstore.displayBooks();
 
 
