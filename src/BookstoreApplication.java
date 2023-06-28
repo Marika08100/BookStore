@@ -12,8 +12,9 @@ public class BookstoreApplication {
             System.out.println(e.getMessage());
         }
         try {
-            bookstore.sellBook("Confess",0);
-        }catch (InsufficientStockException e){
+            bookstore.sellBook("Confess", 2);
+            bookstore.sellBook("Maybe Someday", 2);
+        } catch (InsufficientStockException | BookNotFoundException e) {
             System.out.println(e.getMessage());
         }
 

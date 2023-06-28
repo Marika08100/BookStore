@@ -41,10 +41,11 @@ public class Bookstore {
     public void sellBook(String title, int quantity) throws InsufficientStockException, BookNotFoundException {
         Book book = findBook(title);
         int availableQ = books.getOrDefault(book, 0);
-        if (availableQ >= quantity) {
+        if (availableQ > 0 && availableQ >= quantity) {
             books.put(book, availableQ - quantity);
+        }else{
+            throw new InsufficientStockException("Insufficient stock for book: " + title);
         }
-        throw new InsufficientStockException("Insufficient stock for book: " + title);
     }
 
 }
