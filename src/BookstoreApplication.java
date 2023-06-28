@@ -7,7 +7,7 @@ public class BookstoreApplication {
 
 
         try {
-            System.out.println("The book is found : " + bookstore.findBook("Confess"));
+            System.out.println("The book is found : " + bookstore.findBook("l"));
         } catch (BookNotFoundException e) {
             System.out.println(e.getMessage());
         }
