@@ -12,9 +12,10 @@ public class Bookstore {
     }
 
     public void addBook(Book book) {
-        books.put(book, books.getOrDefault(book, 0) + 1);
-
-
+        books.put(book,1);
+    }
+    public void addBookWithQuantity(Book book,int howMany){
+        books.put(book,howMany);
     }
 
     public Book findBook(String title) throws BookNotFoundException {
