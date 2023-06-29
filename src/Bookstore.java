@@ -12,10 +12,15 @@ public class Bookstore {
     }
 
     public void addBook(Book book) {
+        if (books.containsKey(book)) {
+            int eddigMennyiIlyenDbKonyvVan = books.get(book);
+            books.put(book,1);
+
+        }
         books.put(book,1);
     }
-    public void addBookWithQuantity(Book book,int howMany){
-        books.put(book,howMany);
+    public void addMultipleBooks(Book book,int quantity){
+        books.put(book,quantity);
     }
 
     public Book findBook(String title) throws BookNotFoundException {
