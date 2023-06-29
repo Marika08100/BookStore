@@ -13,8 +13,6 @@ public class Bookstore {
 
     public void addBook(Book book) {
         if (books.containsKey(book)) {
-            int eddigMennyiIlyenDbKonyvVan = books.get(book);
-            books.put(book, 1);
             books.put(book, books.get(book) + 1);
 
         }
