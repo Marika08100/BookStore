@@ -14,13 +14,15 @@ public class Bookstore {
     public void addBook(Book book) {
         if (books.containsKey(book)) {
             int eddigMennyiIlyenDbKonyvVan = books.get(book);
-            books.put(book,1);
+            books.put(book, 1);
+            books.put(book, books.get(book) + 1);
 
         }
-        books.put(book,1);
+        books.put(book, 1);
     }
-    public void addMultipleBooks(Book book,int quantity){
-        books.put(book,quantity);
+
+    public void addMultipleBooks(Book book, int quantity) {
+        books.put(book, quantity);
     }
 
     public Book findBook(String title) throws BookNotFoundException {
@@ -48,7 +50,7 @@ public class Bookstore {
         int availableQ = books.getOrDefault(book, 0);
         if (availableQ > 0 && availableQ >= quantity) {
             books.put(book, availableQ - quantity);
-        }else{
+        } else {
             throw new InsufficientStockException("Insufficient stock for book: " + title);
         }
     }
